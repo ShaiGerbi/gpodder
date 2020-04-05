@@ -80,9 +80,10 @@ class Matcher(object):
         elif k == 'age':
             return episode.age_in_days()
         elif k in ('minutes', 'min'):
+            print(episode.title, episode.total_time, episode.current_position, episode.total_time - episode.current_position / 60)
             return episode.total_time / 60
         elif k in ('remaining', 'rem'):
-            return episode.total_time - episode.current_position / 60
+            return (episode.total_time - episode.current_position) / 60
 
         raise KeyError(k)
 
